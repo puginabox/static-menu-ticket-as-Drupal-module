@@ -1,0 +1,11 @@
+name = Program Overview
+description = Custom code for the Program Overview Block
+package = Strayer University
+core = 7.x
+version = 7.x-1.1
+
+dependencies[] = strayer_common_functionality
+
+stylesheets[all][] = css/program_overview.css
+
+scripts[] = js/program_overview.js

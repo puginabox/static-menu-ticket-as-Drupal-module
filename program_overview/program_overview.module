@@ -1,0 +1,260 @@
+<?php
+/**
+*
+* For the Strayer Programs Overview block
+*
+* Created 5/7/2015 Griffin Byron
+
+To use: add to the WYSIWYG for "Insert Block and Full HTML" this: [block:program_overview=program_overview]
+*
+*/
+
+/**
+ * Implements hook_block_info()
+ */
+function program_overview_block_info() {
+  $blocks = array();
+
+  $blocks['program_overview'] = array(
+    'info' => t('Strayer Programs & Degrees Overview Menu'),
+//    'cache' => DRUPAL_CACHE_PER_ROLE,
+  );
+
+  return $blocks;
+}
+/**
+* Implements hook_block_view().
+*/
+function program_overview_block_view($delta = '') {
+  $block = array();
+
+  switch( $delta ) :
+    case 'program_overview':
+      $block['subject'] = t('');
+      $block['content'] = _program_overview_content();
+    break;    
+  endswitch;
+
+  return $block;
+}
+
+
+/**
+* Out the Program Overview content
+*/
+function _program_overview_content() {
+    
+    $out = '
+    
+    <style>
+.accordion-section-title {
+cursor: pointer;
+
+}
+</style>
+<div id="programs-overview-accordion">
+	<h1><a href="/degrees/masters">Master&#39;s Degree</a></h1>
+	<div class="accordion">
+		<h2 class="accordion-section-title" title="masters-ba">Business Administration<span>&gt;</span></h2>
+		<div class="accordion-section-content" id="masters-ba">
+            <h3><a href="/degrees/masters/business-administration">Masters in Business Administration</a></h3>
+			<h4>Concentrations</h4>
+			<ul class="concentrations">
+				<li><a href="/degrees/masters/business-administration/accounting">Accounting</a></li>
+				<li><a href="/degrees/masters/business-administration/acquisition">Acquisition</a></li>
+				<li><a href="/degrees/masters/business-administration/accounting">Finance</a></li>
+				<li><a href="/degrees/masters/business-administration/global-management">Global Management</a></li>
+				<li><a href="/degrees/masters/business-administration/health-services-administration">Health Services Administration</a></li>
+				<li><a href="/degrees/masters/business-administration/human-resource-management">Human Resource Management</a></li>
+				<li><a href="/degrees/masters/business-administration/it-security-management">IT Security Management</a></li>
+				<li><a href="/degrees/masters/business-administration/management">Management</a></li>
+				<li><a href="/degrees/masters/business-administration/marketing">Marketing</a></li>
+				<li><a href="/degrees/masters/business-administration/professional-studies">Professional Studies</a></li>
+				<li><a href="/degrees/masters/business-administration/project-management">Project Management</a></li>
+				<li><a href="/degrees/masters/business-administration/public-administration">Public Administration</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="accordion">
+		<h2 class="accordion-section-title" title="masters-information-systems">Information Systems<span>&gt;</span></h2>
+		<div class="accordion-section-content" id="masters-information-systems">
+			<h3><a href="/degrees/masters/information-systems">Masters in Information Systems</a></h3>
+			<h4>Concentrations</h4>
+			<ul class="concentrations">
+				<li><a href="/degrees/masters/information-systems/computer-security-management">Computer Security Management</a></li>
+				<li><a href="/degrees/masters/information-systems/computer-forensic-management">Computer Forensic Management</a></li>
+				<li><a href="/degrees/masters/information-systems/enterprise-network-management">Enterprise Network Management</a></li>
+				<li><a href="/degrees/masters/information-systems/information-systems-management">Information Systems Management</a></li>
+				<li><a href="/degrees/masters/information-systems/it-project-management">IT Project Management</a></li>
+				<li><a href="/degrees/masters/information-systems/software-engineering-management">Software Engineering Management </a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="accordion">
+		<a class="no-concentrations-title" href="/degrees/masters/information-assurance">Information Assurance</a>
+	</div>
+	<div class="accordion">
+		<h2 class="accordion-section-title" title="masters-management">Management<span>&gt;</span></h2>
+		<div class="accordion-section-content" id="masters-management">
+            <h3><a href="/degrees/masters/management">Masters in Management</a></h3>
+            <h4>Concentrations</h4>
+			<ul class="concentrations">
+				<li><a href="/degrees/masters/management/leadership">Leadership</a></li>
+				<li><a href="/degrees/masters/management/project-management">Project Management</a></li>
+				<li><a href="/degrees/masters/managment/marketing-management">Marketing Management</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="accordion">
+		<h2 class="accordion-section-title" title="masters-health-services-admin">Health Services Administration<span>&gt;</span></h2>
+		<div class="accordion-section-content" id="masters-health-services-admin">
+			<h3><a href="/degrees/masters/health-services-administration">Masters in Health Services Administration</a></h3>
+            <h4>Concentrations</h4>
+			<ul class="concentrations">
+				<li><a href="/degrees/masters/health-services-administration/clinical-care-management">Clinical Care Management</a></li>
+				<li><a href="/degrees/health-services-administration/public-health-management">Public Health Management</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="accordion">
+		<a class="no-concentrations-title" href="/degrees/masters/public-administration" class="accordion-section-title">Public Administration</a>
+	</div>
+	<div class="accordion">
+		<h2 class="accordion-section-title" title="masters-public-admin">Human Resource Management<span>&gt;</span></h2>
+		<div class="accordion-section-content" id="masters-public-admin">
+			<h3><a href="/degrees/masters/human-resource-management">Human Resource Management</a></h3>
+            <h4>Concentrations</h4>
+			<ul class="concentrations">
+				<li><a href="/degrees/masters/human-resource-management/human-resource-generalist">Human Resource Generalist</a></li>
+				<li><a href="/degrees/masters/human-resource-management/human-resource-organizational-development">Human Resource Organizational Development</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="accordion">
+		<h2 class="accordion-section-title" title="jwmi">Jack Welch Executive MBA<span>&gt;</span></h2>
+		<div class="accordion-section-content" id="jwmi">
+			<h3><a href="/degrees/masters/jack-welch-executive-mba">Jack Welch Executive MBA</a></h3>
+            <h4>Certificate:</h4>
+			<ul class="concentrations">
+				<li><a href="/degrees/certificates/jack-welch-executive-certificate">JWMI Executive Certificate</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- end of programs-overview-accordion -->
+<div id="programs-overview-accordion">
+	<h1><a href="degrees/bachelors">Bachelor&#39;s Degree</a></h1>
+	<div class="accordion">
+		<a class="no-concentrations-title" href="/degrees/bachelors/accounting">Accounting</a>
+	</div>
+	<div class="accordion">
+		<h2 class="accordion-section-title" title="bachelors-ba">Business Administration<span>&gt;</span></h2>
+		<div class="accordion-section-content" id="bachelors-ba">
+            <h3><a href="/degrees/bachelors/business-administration">Bachelors in Business Administration</a></h3>
+            <h4>Concentrations</h4>
+			<ul class="concentrations">
+				<li><a href="/degrees/bachelors/business-administration/acquisition-and-contract-management">Acquisition &amp; Contract Management</a></li>
+				<li><a href="/degrees/bachelors/business-administration/banking">Banking</a></li>
+				<li><a href="/degrees/bachelors/business-administration/entrepreneurship">Entrepreneurship</a></li>
+				<li><a href="/degrees/bachelors/business-administration/finance">Finance</a></li>
+				<li><a href="/degrees/bachelors/business-administration/health-services-administration">Health Services Administration</a></li>
+				<li><a href="/degrees/bachelors/business-administration/human-resource-management">Human Resource Management</a></li>
+				<li><a href="/degrees/bachelors/business-administration/management">Management</a></li>
+				<li><a href="/degrees/bachelors/business-administration/marketing">Marketing</a></li>
+				<li><a href="/degrees/bachelors/business-administration/project-management">Project Management</a></li>
+				<li><a href="/degrees/bachelors/business-administration/retail-management">Retail Management</a></li>
+				<li><a href="/degrees/bachelors/business-administration/international-business">International Business</a></li>
+				<li><a href="/degrees/bachelors/business-administration/accounting">Accounting</a></li>
+				<li><a href="/degrees/bachelors/business-administration/hospitality-tourism-management">Hospitality &amp; Tourism Management</a></li>
+				<li><a href="/degrees/bachelors/business-administration/legal-studies">Legal Studies</a></li>
+				<li><a href="/degrees/bachelors/business-administration/management-information-systems">Management Information Systems</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="accordion">
+		<h2 class="accordion-section-title" title="bachelors-criminal-justice">Criminal Justice<span>&gt;</span></h2>
+		<div class="accordion-section-content" id="bachelors-criminal-justice">
+            <h3><a href="/degrees/bachelors/criminal-justice">Criminal Justice</a></h3>
+            <h4>Concentrations</h4>
+			<ul class="concentrations">
+				<li><a href="/degrees/bachelors/criminal-justice/criminal-justice-administration">Criminal Justice Administration</a></li>
+				<li><a href="/degrees/bachelors/criminal-justice/homeland-security-and-emergency-management">Homeland Security &amp; Emergency Management</a></li>
+				<li><a href="/degrees/bachelors/criminal-justice/computer-security-and-forensics">Computer Security &amp; Forensics</a></li>
+				<li><a href="/degrees/bachelors/information-systems/crime-and-criminal-behavior">Crime &amp; Criminal Behavior</a></li>
+				<li><a href="/degrees/bachelors/criminal-justice/crime-mapping-and-data-analysis">Crime Mapping &amp; Data Analysis</a></li>
+				<li><a href="/degrees/bachelors/criminal-justice/cyber-security-management">Cyber Security Management</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="accordion">
+		<a class="no-concentrations-title" href="/degrees/bachelors/economics">Economics</a>
+	</div>
+	<div class="accordion">
+		<h2 class="accordion-section-title" title="bachelors-information-systems">Information Systems<span>&gt;</span></h2>
+		<div class="accordion-section-content" id="bachelors-information-systems">
+			<h3><a href="/degrees/bachelors/information-systems">Information Systems</a></h3>
+            <h4>Concentrations</h4>
+			<ul class="concentrations">
+				<li><a href="/degrees/bachelors/information-systems/computer-forensic-management">Computer Forensic Management</a></li>
+				<li><a href="/degrees/bachelors/information-systems/cybersecurity-management">Cybersecurity Management</a></li>
+				<li><a href="/degrees/bachelors/information-systems/enterprise-data-management">Enterprise Data Management</a></li>
+				<li><a href="/degrees/bachelors/information-systems/homeland-security-management">Homeland Security Management</a></li>
+				<li><a href="/degrees/bachelors/information-systems/it-project-management">IT Project Management</a></li>
+				<li><a href="/degrees/bachelors/information-systems/software-engineering-management">Software Engineering Management</a></li>
+				<li><a href="/degrees/bachelors/information-systems/technology-management">Technology Management</a></li>
+				<li><a href="/degrees/bachelors/information-systems/geographic-information-systems-management">Geographic Information Systems Management</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="accordion">
+		<h2 class="accordion-section-title" title="bachelors-information-technology">Information Technology<span>&gt;</span></h2>
+		<div class="accordion-section-content" id="bachelors-information-technology">
+			<h3><a href="/degrees/bachelors/information-technology">Information Technology</a></h3>
+            <h4>Concentrations</h4>
+			<ul class="concentrations">
+				<li><a href="/degrees/bachelors/information-technology/cyber-security-technology">Cyber Security Technology</a></li>
+				<li><a href="/degrees/bachelors/information-technology/database-technology">Database Technology</a></li>
+				<li><a href="/degrees/bachelors/information-technology/digital-forensics-technology">Digital Forensics Technology</a></li>
+				<li><a href="/degrees/bachelors/information-technology/enterprise-security-technology">Enterprise Security Technology</a></li>
+				<li><a href="/degrees/bachelors/information-technology/internetworking-technology">Internetworking Technology</a></li>
+				<li><a href="/degrees/bachelors/information-technology/mobile-programming-technology">Mobile Programming Technology</a></li>
+				<li><a href="/degrees/bachelors/information-technology/networking-technology">Networking Technology</a></li>
+				<li><a href="/degrees/bachelors/information-technology/programming-technology">Programming Technology</a></li>
+				<li><a href="/degrees/bachelors/information-technology/web-development-technology">Web Development Technology</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- end of programs-overview-accordion -->
+<div id="programs-overview-accordion">
+	<h1><a href="/degrees/associates">Associate Degree</a></h1>
+	<div class="accordion">
+		<a class="no-concentrations-title" href="/degrees/associates/accounting">Accounting</a>
+	</div>
+	<div class="accordion">
+		<a class="no-concentrations-title" href="/degrees/associates/acquisition-and-contract-management">Acquisition &amp; Contract Management</a>
+	</div>
+	<div class="accordion">
+		<a class="no-concentrations-title" href="/degrees/associates/business-administration">Business Administration</a>
+	</div>
+	<div class="accordion">
+		<a class="no-concentrations-title" href="/degrees/associates/economics">Economics</a>
+	</div>
+	<div class="accordion">
+		<a class="no-concentrations-title" href="/degrees/associates/information-systems">Information Systems</a>
+	</div>
+	<div class="accordion">
+		<a class="no-concentrations-title" href="/degrees/associates/information-technology">Information Technology</a>
+	</div>
+	<div class="accordion">
+		<a class="no-concentrations-title" href="/degrees/associates/marketing">Marketing</a>
+	</div>
+</div>
+<!-- end of programs-overview-accordion -->
+    
+    
+    '; // end $out
+
+  return $out;    
+} // end of _program_overview_content()
+    
